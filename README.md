@@ -25,6 +25,26 @@ The project is intended to be compiled with PlatformIO targeting the ATtiny85.
 - src/main.cpp: main firmware
 - platformio.ini: PlatformIO configuration
 
+## Wiring
+
+A simple wiring example is shown below.
+
+| ATtiny85 pin | Function | Connection |
+| --- | --- | --- |
+| PB0 (pin 5) | RESET output | Connect to the Xiao RESET pin |
+| PB1 (pin 6) | Heartbeat input | Connect to a heartbeat signal from the Xiao |
+| PB2 (pin 7) | Battery ADC input | Connect to the battery divider midpoint |
+| VCC (pin 8) | Supply | Connect to 3.3 V |
+| GND (pin 4) | Ground | Connect to GND |
+
+### Battery divider note
+
+The firmware assumes a 1:2 resistor divider (for example 100 kΩ + 100 kΩ) from battery positive to ground, with the midpoint connected to PB2.
+
+### Reset behavior
+
+The ATtiny85 pulls the Xiao RESET line low for a short time to force a reboot when the watchdog conditions are met.
+
 ## Usage
 
 1. Open the folder with PlatformIO or VS Code.
